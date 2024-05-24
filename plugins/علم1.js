@@ -10,7 +10,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     let src = await (await fetch('https://raw.githubusercontent.com/mikey44dd/hanry-bot/master/src/JSON/%D8%B9%D9%84%D9%85.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*${command.toUpperCase()}*
-  *❐↞┇الـوقـت⏳↞*${(timeout / 1000).toFixed(2)} ┇
+  ❐↞┇الـوقـت⏳↞*${(timeout / 1000).toFixed(2)} ┇*
   *استخدم .انسحب للأنسحاب*
   ❐↞┇الـجـائـزة💰↞ ${poin} نقاط┇
 *❰BY :𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 🧧❱*
