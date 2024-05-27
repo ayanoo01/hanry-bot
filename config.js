@@ -18,11 +18,11 @@ global.suittag = ['201153573240'];
 global.prems = ['201153573240'];
 
 global.packname = 'Sticker';
-global.author = '=𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot';
-global.wm = '𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot';
-global.titulowm = '𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot';
-global.titulowm2 = `𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot`
-global.igfg = '𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot';
+global.author = '=𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 -𝚋𝚘𝚝 ';
+global.wm = '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - Bot';
+global.titulowm = '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - 𝚋𝚘𝚝';
+global.titulowm2 = `𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - 𝚋𝚘𝚝`
+global.igfg = '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - 𝚋𝚘𝚝';
 global.wait = '*[ ⏳ ] تَحْميل...*';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
@@ -43,9 +43,9 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\n𝑍𝛩𝑅𝛩 - Bot`;
-global.gt = '𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐 - Bot';
-global.mysticbot = ' 𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐- Bot';
+global.wm2 = `${dia} ${fecha}\𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 -𝚋𝚘𝚝 `;
+global.gt = '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - Bot';
+global.mysticbot = '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘 - 𝚋𝚘𝚝';
 global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
 global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
 global.waitt = '*[ ⏳ ] Cargando...*';
