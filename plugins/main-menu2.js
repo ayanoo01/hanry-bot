@@ -19,7 +19,7 @@ let handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPr
     let uptime = clockString(_uptime)
 let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-let videoUrl = 'https://telegra.ph/file/1efd1c806566daa57b109.mp4';
+let videoUrl = 'https://telegra.ph/file/e2c4cc5747e136b12e83c.mp4';
   let vn = './media/menu.mp3';
   const user = global.db.data.users[m.sender];
   const {money, joincount} = global.db.data.users[m.sender];
@@ -34,11 +34,11 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 let more = String.fromCharCode(8206)
 let readMore = more.repeat(900) 
   const taguser = '@' +  m.sender.split('@s.whatsapp.net')[0];
-let str = ` 𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐
+let str = ` 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
 
  *مرحبا,* ${taguser}
 
-*_<اوامر   دون كيهوتيدو دو فلامينغو/>_*   
+*_<اوامر ترافلجار لاو/>_*   
 
 *① ضع قبل كل أمر /*
 
@@ -187,7 +187,7 @@ let str = ` 𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐
 
 *–––––––––– ·「☠️」· –––––––––*
 
-𝑫𝒐𝒇𝒍𝒂𝒎𝒊𝒏𝒈𝒐
+𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
 
 `.trim();
     
