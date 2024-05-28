@@ -191,7 +191,7 @@ let str = ` 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
 
 `.trim();
     
-await conn.sendMessage(m.chat, { react: { text: '🤖', key: m.key } })
+await conn.sendMessage(m.chat, { react: { text: '☘️', key: m.key } })
 
 conn.sendMessage(m.chat, {
         video: { url: videoUrl }, caption: str,
