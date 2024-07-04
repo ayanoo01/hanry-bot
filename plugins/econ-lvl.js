@@ -7,12 +7,15 @@ let handler = async (m, { conn }) => {
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         throw `
-┌───⊷ *المستوي*
-▢ الاسم : *${name}*
-▢ المستوي : *${user.level}*
-▢  الدور : *${user.role}*
-XP : *${user.exp - min}/${xp}*
-└──────────────
+> *_الــــــلــــفــــل_*
+*╮──────────────────⟢ـ*
+*❍ ↚الـآســــم*
+*❍ ↚〖{name}$ 〗*
+*❍ ↚الــمـــســـتـوي : 〖 {user.lvel}$ 〗*
+*❍ ↚الــدور 〖 {user.role}$ 〗*
+
+*╯─────────────────⟢ـ*
+> *تـــحـــتـاج الــي ┇{max - user.exp} $┇مـن نـــقـاط الـخــبـــرة*
 
 انت تحتاج الي *${max - user.exp}* *XP* لرفع مستواك
 `.trim()
@@ -22,12 +25,11 @@ XP : *${user.exp - min}/${xp}*
     if (before !== user.level) {
         let teks = `🎊 عاش يحب ${conn.getName(m.sender)}    المستوي:`
         let str = `
-┌─⊷ *المستوي*
-▢ المستوي السابق : *${before}*
-▢ المستوي الحالي : *${user.level}*
-└──────────────
-
-*_كلما تفاعلت مع البوت ارتفع مستواك_*
+*╮──────────────────⟢ـ*
+*❍ ↚الــمــســـتــوي الـــســـابـــق : 〖}before}$ 〗*
+*❍ ↚الـــمــســتـــوي الــحـالــي : 〖 {user.lvel}$ 〗*
+*╯─────────────────⟢ـ*
+> *_تــــفــاعــل مـــع الـــبوت أكــثـــر لــ يــرتــــفع مـــســتــواك_*
 `.trim()
         try {
             const img = await levelup(teks, user.level)
