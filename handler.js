@@ -1458,10 +1458,10 @@ export async function participantsUpdate({id, participants, action}) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
+                    title: 'ᴛʜᴇ 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
                     body: 'welcome to Group',
                     thumbnailUrl: welcomeApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaZThPH2UPBBFmyXPf1o',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -1469,6 +1469,63 @@ export async function participantsUpdate({id, participants, action}) {
               })
             } catch (error) {
               console.error(`Error generating welcome image: ${error}`)
+            }
+          }
+        }
+      }
+      break
+
+    case 'remove':
+      if (chat.welcome) {
+        let groupMetadata = (await this.groupMetadata(id)) || (conn.chats[id] || {}).metadata
+        for (let user of participants) {
+          let pp, ppgp
+          try {
+            pp = await this.profilePictureUrl(user, 'image')
+            ppgp = await this.profilePictureUrl(id, 'image')
+          } catch (error) {
+            console.error(`Error retrieving profile picture: ${error}`)
+            pp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
+            ppgp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
+          } finally {
+            let text = (chat.sBye || this.bye || conn.bye || 'HELLO, @user').replace(
+              '@user',
+              '@' + user.split('@')[0]
+            )
+
+            let nthMember = groupMetadata.participants.length
+            let secondText = `Goodbye, our ${nthMember}th group member`
+
+            let leaveApiUrl = `https://welcome.guruapi.tech/leave-image?username=${encodeURIComponent(
+              await this.getName(user)
+            )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
+              ppgp
+            )}&memberCount=${encodeURIComponent(
+              nthMember.toString()
+            )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
+              'https://cdn.wallpapersafari.com/71/19/7ZfcpT.png'
+            )}`
+
+            try {
+              let leaveResponse = await fetch(leaveApiUrl)
+              let leaveBuffer = await leaveResponse.buffer()
+
+              this.sendMessage(id, {
+                text: text,
+                contextInfo: {
+                  mentionedJid: [user],
+                  externalAdReply: {
+                    title: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
+                    body: 'Goodbye from  Group',
+                    thumbnailUrl: leaveApiUrl,
+                    sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                  },
+                },
+              })
+            } catch (error) {
+              console.error(`Error generating leave image: ${error}`)
             }
           }
         }
