@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
         conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tebakbendera[id][0])
         throw false
     }
-    let src = await (await fetch('https://raw.githubusercontent.com/Khaledst1/-/main/Bot-AlSoltan1.json')).json()
+    let src = await (await fetch('https://raw.githubusercontent.com/ayanoo01/hanry-bot/master/src/JSON/%D8%B9%D9%84%D9%85.json')).json()
     let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*· • • ━━ ⌝☘️⌞ ━━ • • ·*
 *${command.toUpperCase()}*
