@@ -45,7 +45,7 @@ handler.command = ['nivel', 'lvl', 'رانك', 'لفل']
 export default handler
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-/*import { canLevelUp, xpRange } from '../lib/levelling.js'
+*import { canLevelUp, xpRange } from '../lib/levelling.js'
 let handler = async (m, { conn }) => {
 	  let name = conn.getName(m.sender)
    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
