@@ -3,29 +3,28 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
   let user = db.data.users[m.sender]
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
-    let { premium, level, limit, exp, lastclaim, registered, regTime, age, pasangan } = global.db.data.users[m.sender]
-    let username = conn.getName(who)
-    let name = conn.getName(who)
-    let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-    let str = `
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+  let { premium, level, limit, exp, lastclaim, registered, regTime, age, pasangan } = global.db.data.users[m.sender]
+  let username = conn.getName(who)
+  let name = conn.getName(who)
+  let fkon = { key: { fromMe: false, participant: `${m.sender.split('@')[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
+  let str = `
 > *_بـــروفــايـــــلك_*
 *╮──────────────────⟢ـ*
 *❐ ↚┇الـإســم 『 ${username} 』* 
 *❐ ↚┇الـإســم 『 ${registered ? name : ''} 』* 
 *❐ ↚┇الــمـنــشـن 『 @${who.replace(/@.+/, '')} 』* 
-*❐ ↚┇الــرقــم 『 ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')} 』* 
-*❐ ↚┇رابــط الـتــواصـل 『 https://wa.me/${who.split`@`[0]} 』* 
+*❐ ↚┇الــرقــم 『 ${new PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')} 』* 
+*❐ ↚┇رابــط الـتــواصـل 『 https://wa.me/${who.split('@')[0]} 』* 
 *❐ ↚┇الــعـمـر 『 ${registered ? age : ''} غير مسجل 』* 
-*❐ ↚┇الــشـريــك 『 ${pasangan ? `@${pasangan.split("@")[0]}` : `غير مسجل`}
-${readMore 』*  
-*❐ ↚┇الـــطــلـب 『 registered ? 'Terdaftar': 'لا'}$ 』* 
+*❐ ↚┇الــشـريــك 『 ${pasangan ? `@${pasangan.split("@")[0]}` : `غير مسجل`} 』*
+${readMore}  
+*❐ ↚┇الـــطــلـب 『 ${registered ? 'Terdaftar': 'لا'} 』*
 *❐ ↚┇عـضــو مــمـيـز 『 ${premium ? "نعم" :"لا"} 』* 
-*❐ ↚┇وقــت مــمـيـز 『 ${clockString(user.premiumTime 』** 
-
-`.trim()
+*❐ ↚┇وقــت مــمـيـز 『 ${clockString(user.premiumTime)} 』** 
 *╯─────────────────⟢ـ*
-   await conn.sendFile(m.chat, pp, '', str, m)
+`.trim()
+  await conn.sendFile(m.chat, pp, '', str, m)
 }
 handler.help = ['profile']
 handler.tags = ['main']
