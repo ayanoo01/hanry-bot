@@ -26,29 +26,29 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				title: 'قوائم الأوامر',
   						  		    rows: [
   						  		    	{
-  						  		    		header: 'By Azax',
+  						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة المجموعات',
   									    	  description: '#قائمة اوامر المجموعات',
-  								    		  id: '.الجروبات2'
+  								    		  id: '.المشرفين'
   						  		    	}
   						  		    ]
   						  			},
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
-  										      title: 'استدعاء قائمة الترفيه',
-  									    	  description: 'deadpool',
-  								    		  id: '.الترفيه'
+  						  		    		header: 'By kakashi',
+  										      title: '  الاعضاء',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
+  								    		  id: '.المطور'
   						  		    	}
   						  				]
   						  			},
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
-  										      title: 'استدعاء قائمة الادوات',
-  									    	  description: 'deadpool',
+  						  		    		header: 'By kakashi',
+  										      title: ' التنزيلات ',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.الادوات'
   						  		    	}
   						  				]
@@ -56,29 +56,29 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
-  										      title: 'استدعاء قائمة التحميلات',
-  									    	  description: 'deadpool',
-  								    		  id: '.التحميلات'
+  						  		    		header: 'By kakashi',
+  										      title: ' الاسلاميات ',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
+  								    		  id: '.التحميل'
   						  		    	}
   						  				]
   						  			},
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
-  										      title: 'استدعاء قائمة التحويلات',
-  									    	  description: 'deadpool',
-  								    		  id: '.التحويلات'
+  						  		    		header: 'By kakashi',
+  										      title: ' التحويل ',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
+  								    		  id: '.الوهمي'
   						  		    	}
   						  				]
   						  			},
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
-  										      title: 'استدعاء قائمة الصور',
-  									    	  description: 'deadpool',
+  						  		    		header: 'By kakashi',
+  										      title: ' المطورين ',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.صور'
   						  		    	}
   						  				]
@@ -86,9 +86,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
+  						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة الملصقات',
-  									    	  description: 'deadpool',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.الملصقات'
   						  		    	}
   						  				]
@@ -96,9 +96,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
+  						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة الالعاب',
-  									    	  description: 'deadpool',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.الالعاب'
   						  		    	}
   						  				]
@@ -106,9 +106,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
+  						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة الاوامر الدينية',
-  									    	  description: 'deadpool',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.الاسلام'
   						  		    	}
   						  				]
@@ -116,9 +116,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			{
   						  				rows: [
   						  					{
-  						  		    		header: 'By Azax',
+  						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة التصاميم',
-  									    	  description: 'deadpool',
+  									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.التصاميم'
   						  		    	}
   						  				]
