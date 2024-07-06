@@ -8,7 +8,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
         var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/97f2f1eff957a6eef3631.jpg'}}, { upload: conn.waUploadToServer })
         const interactiveMessage = {
             body: { text: `~*⊹‏⊱≼━━━⌬〔📜〕⌬━━━≽⊰⊹*~`.trim() },
-            footer: { text: `©By Azax`.trim() },  
+            footer: { text: `©By kakashi`.trim() },  
             header: {
                 title: `مرحبا يا: @${mentionId.split('@')[0]}`,
                 subtitle: `*اختر احد الاوامر من القائمة*`,
@@ -29,7 +29,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		    		header: 'By kakashi',
   										      title: 'استدعاء قائمة المجموعات',
   									    	  description: '#قائمة اوامر المجموعات',
-  								    		  id: '.المشرفين'
+  								    		  id:'المشرفين. '
   						  		    	}
   						  		    ]
   						  			},
@@ -37,9 +37,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: 'By kakashi',
-  										      title: '  الاعضاء',
+  										      title: '  الاعضاء. ',
   									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
-  								    		  id: '.المطور'
+  								    		  id: '.المطور. '
   						  		    	}
   						  				]
   						  			},
@@ -47,9 +47,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: 'By kakashi',
-  										      title: ' التنزيلات ',
+  										      title: ' التنزيلات. ',
   									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
-  								    		  id: '.الادوات'
+  								    		  id: '.الادوات. '
   						  		    	}
   						  				]
   						  			},
@@ -57,9 +57,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: 'By kakashi',
-  										      title: ' الاسلاميات ',
+  										      title: ' الاسلاميات. ',
   									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
-  								    		  id: '.التحميل'
+  								    		  id: '.التحميل. '
   						  		    	}
   						  				]
   						  			},
@@ -67,7 +67,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: 'By kakashi',
-  										      title: ' التحويل ',
+  										      title: ' التحويل. ',
   									    	  description: '𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘',
   								    		  id: '.الوهمي'
   						  		    	}
