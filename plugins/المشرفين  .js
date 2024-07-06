@@ -19,7 +19,7 @@ let handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPr
     let uptime = clockString(_uptime)
 let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-let videoUrl = 'https://telegra.ph/file/0bcd4e5393e1001b729b8.mp4';
+let videoUrl = 'https://telegra.ph/file/f85a856d91fcf3b417e0c.jpg';
   let vn = './media/menu.mp3';
   const user = global.db.data.users[m.sender];
   const {money, joincount} = global.db.data.users[m.sender];
@@ -52,7 +52,7 @@ let str = `
 *╮─═══─ • ❯ ✣ ❮ • ─═══─╭*
 `.trim();
     
-await conn.sendMessage(m.chat, { react: { text: '👾', key: m.key } })
+await conn.sendMessage(m.chat, { react: { text: '👑', key: m.key } })
 
 conn.sendMessage(m.chat, {
         video: { url: videoUrl }, caption: str,
