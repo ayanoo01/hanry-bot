@@ -1,73 +1,167 @@
-import 'node-fetch';
-const {
-  proto,
-  generateWAMessageFromContent,
-  prepareWAMessageMedia
-} = (await import("@adiwajshing/baileys")).default;
-import '@bochilteam/scraper';
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 
-var handler = async (_0x154cf9, { conn: _0x3aa0f1, usedPrefix: _0x9f47d1, command: _0x28115d }) => {
-  if (!_0x28115d) {
-    throw "Use example " + _0x28115d + " anu";
-  }
-  _0x154cf9.reply(wait);
-  try {
-    let _0x38baab = generateWAMessageFromContent(_0x154cf9.chat, {
-      viewOnceMessage: {
-        message: {
-          messageContextInfo: {
-            deviceListMetadata: {},
-            deviceListMetadataVersion: 0x2
-          },
-          interactiveMessage: proto.Message.InteractiveMessage.create({
-            body: proto.Message.InteractiveMessage.Body.create({
-              text: "ɴᴀᴍᴀ ꜱᴀyᴀ ᴀᴅᴀʟᴀʜ *ᴇʟᴀɪɴᴀ-ᴀɪ*\n\nʙᴏᴛ ɪɴɪ ᴅᴀᴘᴀᴛ ᴅɪɢᴜɴᴀᴋᴀɴ sᴇʙᴀɢᴀɪ *ᴇᴅᴜᴋᴀsɪ ᴘᴇʟᴀᴊᴀʀᴀɴ*, *ᴜɴᴅᴜʜᴀɴ ᴍᴇᴅɪᴀ*, *ɢᴀᴍᴇ*, *ᴘᴇɴᴊᴀɢᴀ ɢʀᴜᴘ*, *ᴅᴀɴ ʟᴀɪɴɴʏᴀ* ʏᴀɴɢ ᴅᴀᴘᴀᴛ ᴍᴇᴍʙᴜᴀᴛ ᴋᴀᴍᴜ ʟᴇʙɪʜ ᴍᴜᴅᴀʜ ᴜɴᴛᴜᴋ ᴍᴇɴᴊᴀʟᴀɴɪ ʜᴀʀɪ-ʜᴀʀɪ"
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.create({
-              text: wm
-            }),
-            header: proto.Message.InteractiveMessage.Header.create({
-              hasMediaAttachment: false,
-              ...(await prepareWAMessageMedia({
-                image: {
-                  url: "https://telegra.ph/file/d3d0250cbc889308c9841.jpg"
-                }
-              }, {
-                upload: _0x3aa0f1.waUploadToServer
-              }))
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-              buttons: [{
-                name: "quick_reply",
-                buttonParamsJson: "{\"display_text\":\"Tampilkan Semua Menu\",\"id\":\".allmenu\"}"
-              }, {
-                name: "quick_reply",
-                buttonParamsJson: "{\"display_text\":\"Script Nya\",\"id\":\".sc\"}"
-              }, {
-                name: "quick_reply",
-                buttonParamsJson: "{\"display_text\":\"Pemilik Bot Ini\",\"id\":\".owner\"}"
-              }, {
-                name: "quick_reply",
-                buttonParamsJson: "{\"display_text\":\"Credit\",\"id\":\".tqto\"}"
-              }]
-            })
-          })
-        }
-      }
-    }, { quoted: _0x154cf9 });
-    return await _0x3aa0f1.relayMessage(_0x154cf9.chat, _0x38baab.message, {});
-  } catch (_0x37e2ab) {
-    _0x3aa0f1.sendFile(_0x154cf9.chat, eror, "anu.mp3", null, _0x154cf9, true, {
-      type: "audioMessage",
-      ptt: true
-    });
-  }
+const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
+    const device = await getDevice(m.key.id);
+    const mentionId = m.key.participant || m.key.remoteJid;
+
+    if (device !== 'desktop' || device !== 'web') {      
+        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/97f2f1eff957a6eef3631.jpg'}}, { upload: conn.waUploadToServer })
+        const interactiveMessage = {
+            body: { text: `~*⊹‏⊱≼━━━⌬〔📜〕⌬━━━≽⊰⊹*~`.trim() },
+            footer: { text: `©By Azax`.trim() },  
+            header: {
+                title: `مرحبا يا: @${mentionId.split('@')[0]}`,
+                subtitle: `*اختر احد الاوامر من القائمة*`,
+                hasMediaAttachment: true,
+                imageMessage: joanimiimg.imageMessage,
+            },
+            nativeFlowMessage: {
+  						buttons: [
+  							{
+  								name: 'single_select',
+  						  	buttonParamsJson: JSON.stringify({
+  						  		title: '🐾➜⃞「الاوامر」',
+  						  		sections: [
+  						  			{
+  						  				title: 'قوائم الأوامر',
+  						  		    rows: [
+  						  		    	{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة المجموعات',
+  									    	  description: '#قائمة اوامر المجموعات',
+  								    		  id: '.الجروبات2'
+  						  		    	}
+  						  		    ]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الترفيه',
+  									    	  description: 'deadpool',
+  								    		  id: '.الترفيه'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الادوات',
+  									    	  description: 'deadpool',
+  								    		  id: '.الادوات'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة التحميلات',
+  									    	  description: 'deadpool',
+  								    		  id: '.التحميلات'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة التحويلات',
+  									    	  description: 'deadpool',
+  								    		  id: '.التحويلات'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الصور',
+  									    	  description: 'deadpool',
+  								    		  id: '.صور'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الملصقات',
+  									    	  description: 'deadpool',
+  								    		  id: '.الملصقات'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الالعاب',
+  									    	  description: 'deadpool',
+  								    		  id: '.الالعاب'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة الاوامر الدينية',
+  									    	  description: 'deadpool',
+  								    		  id: '.الاسلام'
+  						  		    	}
+  						  				]
+  						  			},
+  						  			{
+  						  				rows: [
+  						  					{
+  						  		    		header: 'By Azax',
+  										      title: 'استدعاء قائمة التصاميم',
+  									    	  description: 'deadpool',
+  								    		  id: '.التصاميم'
+  						  		    	}
+  						  				]
+  						  			}
+  						  		]
+  						  	})
+  							},
+                              {
+                                  name: 'cta_url',
+                                  buttonParamsJson: JSON.stringify({
+                                      display_text: '⚠️مجموعة البوت⚠️',
+                                      url: 'https://chat.whatsapp.com/G7br7xY2Uk11v9i792NkuJ',
+                                      merchant_url: ''
+                                  })
+                              },
+                              {
+                                  name: 'cta_url',
+                                  buttonParamsJson: JSON.stringify({
+                                      display_text: '👨🏻‍💻قناه البوت👨🏻‍💻',
+                                      url: 'https://whatsapp.com/channel/0029VaZThPH2UPBBFmyXPf1o',
+                                      merchant_url: 'https://whatsapp.com/channel/0029VaZThPH2UPBBFmyXPf1o'
+                                  })
+                              }
+  			  		],
+                messageParamsJson: ''
+            }
+        };        
+
+        let msg = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    interactiveMessage,
+                },
+            },
+        }, { userJid: conn.user.jid, quoted: m })
+        msg.message.viewOnceMessage.message.interactiveMessage.contextInfo = { mentionedJid: [mentionId] };
+        conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+
+    } else {
+        conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
+    }    
 };
-
-handler.help = ["menu"];
-handler.tags = ["menu"];
-handler.command = /^(menu|help)$/i;
-handler.limit = false;
-handler.register = true;
-
+handler.help = ['imgboton'];
+handler.tags = ['For Test'];
+handler.command = ['الاوامر','اوامر'];
 export default handler;
