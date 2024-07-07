@@ -19,7 +19,7 @@ let handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPr
     let uptime = clockString(_uptime)
 let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-let videoUrl = 'https://telegra.ph/file/2642aa631b7f2f9207465.mp4';
+let videoUrl = 'https://telegra.ph/file/41f45b011b2c34057b64d.mp4';
   let vn = './media/menu.mp3';
   const user = global.db.data.users[m.sender];
   const {money, joincount} = global.db.data.users[m.sender];
@@ -177,7 +177,7 @@ let str = ` 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
 ┛──⏣──━━──⏣──┗
 *_❍↚ المطور_*
 
-𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
+𝙰𝚈𝙰𝙽𝙾𝙺𝙾𝚄𝙹𝙸 𝙱𝙾𝚃
 
 `.trim();
     
@@ -191,7 +191,7 @@ conn.sendMessage(m.chat, {
 }; 
 handler.help = ['menue']
 handler.tags = ['group']
-handler.command = ['اوامر|الاوامر'] 
+handler.command = ['اوامر'] 
 
 export default handler
 function clockString(ms) {
@@ -216,4 +216,4 @@ function clockString(ms) {
         res = "مساء الخير 🌙"
       }
       return res
-      }
+    }
