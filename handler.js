@@ -1428,8 +1428,8 @@ if (chat.welcome) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
-                  pp = 'https://telegra.ph/file/12bc0f2c03d818a597963.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/f40539582e837b17663ab.jpg'; // Assign default image URL
+                  pp = 'https://telegra.ph/file/b69ef21039d8a2b3dd5fb.jpg'; //           
+                  ppgp = 'https://telegra.ph/file/f40539582e837b17663ab.jpg'; //          
                 } finally {
                   let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
                     .replace('@group', await this.getName(id))
@@ -1440,7 +1440,7 @@ if (chat.welcome) {
                   let secondText = `اهلا ياحب, ${await this.getName(user)}, رقم ${nthMember}العضو`;
           
                   let welcomeApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
-                    'https://telegra.ph/file/ae2a3edae5989d234d085.jpg'
+                    'https://telegra.ph/file/bd57d9508c4c62021db9c.jpg' //
                   )}&text1=${encodeURIComponent(
                     await this.getName(user)
                   )}&text2=نورت+الجروب+يحب&text3=عدد+الاعضاء:${encodeURIComponent(
@@ -1454,6 +1454,46 @@ if (chat.welcome) {
                     this.sendFile(id, welcomeBuffer, 'welcome.png', text, null, false, { mentions: [user] });
                   } catch (error) {
                     console.error(`حدث خطأ أثناء إنشاء صورة الترحيب: ${error}`);
+                  }
+                }
+              }
+            }
+            break;
+          
+          case 'remove':
+            if (chat.welcome) {
+              let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+              for (let user of participants) {
+                let pp, ppgp;
+                try {
+                  pp = await this.profilePictureUrl(user, 'image');
+                  ppgp = await this.profilePictureUrl(id, 'image');
+                } catch (error) {
+                  console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
+                  pp = 'https://telegra.ph/file/b69ef21039d8a2b3dd5fb.jpg'; //           
+                  ppgp = 'https://telegra.ph/file/ae2a3edae5989d234d085.jpg'; //       
+                } finally {
+                  let text = (chat.sBye || this.bye || conn.bye || 'اهلا, @user')
+                    .replace('@user', '@' + user.split('@')[0]);
+          
+                  let nthMember = groupMetadata.participants.length;
+                  let secondText = `وداعا, رقم ${nthMember}عضونا`;
+          
+                  let leaveApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
+                    'https://telegra.ph/file/bd57d9508c4c62021db9c.jpg' //
+                  )}&text1=${encodeURIComponent(
+                    await this.getName(user)
+                  )}&text2=الي+القاء&text3=عدد+الاعضاء:${encodeURIComponent(
+                    nthMember.toString()
+                  )}&avatar=${encodeURIComponent(pp)}`;
+          
+                  try {
+                    let leaveResponse = await fetch(leaveApiUrl);
+                    let leaveBuffer = await leaveResponse.buffer();
+          
+                    this.sendFile(id, leaveBuffer, 'leave.png', text, null, false, { mentions: [user] });
+                  } catch (error) {
+                    console.error(`حدث خطأ أثناء إنشاء صورة الإجازة: ${error}`);
                   }
                 }
               }
