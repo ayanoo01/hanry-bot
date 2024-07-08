@@ -1429,7 +1429,7 @@ if (chat.welcome) {
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
                   pp = 'https://telegra.ph/file/12bc0f2c03d818a597963.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/12bc0f2c03d818a597963.jpg'; // Assign default image URL
+                  ppgp = 'https://telegra.ph/file/f40539582e837b17663ab.jpg'; // Assign default image URL
                 } finally {
                   let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
                     .replace('@group', await this.getName(id))
@@ -1440,7 +1440,7 @@ if (chat.welcome) {
                   let secondText = `اهلا ياحب, ${await this.getName(user)}, رقم ${nthMember}العضو`;
           
                   let welcomeApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
-                    'https://telegra.ph/file/919c9aa59b8dc5cae41a8.png'
+                    'https://telegra.ph/file/ae2a3edae5989d234d085.jpg'
                   )}&text1=${encodeURIComponent(
                     await this.getName(user)
                   )}&text2=نورت+الجروب+يحب&text3=عدد+الاعضاء:${encodeURIComponent(
