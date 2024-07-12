@@ -34,7 +34,8 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 let more = String.fromCharCode(8206)
 let readMore = more.repeat(900) 
   const taguser = '@' +  m.sender.split('@s.whatsapp.net')[0];
-let str = ` 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
+let str = `
+ 𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘
 
  *مرحبا,* ${taguser}
 
@@ -171,7 +172,7 @@ conn.sendMessage(m.chat, {
   gifPlayback: true,gifAttribution: 0
     }, { quoted: m });
 }; 
-handler.help = ['menue']
+handler.help = ['menu']
 handler.tags = ['group']
 handler.command = ['اوامر'] 
 
@@ -198,4 +199,4 @@ function clockString(ms) {
         res = "مساء الخير 🌙"
       }
       return res
-      }
+    }
