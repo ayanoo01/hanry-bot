@@ -40,4 +40,4 @@ handler.help = ['spotify'];
 handler.tags = ['downloader'];
 handler.command = /^(سبوتيفاي|سبوت)$/i;
 
-تصدير المعالج الافتراضي;
+export default handler
