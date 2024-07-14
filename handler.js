@@ -1005,7 +1005,7 @@ export async function handler(chatUpdate) {
           autoread2: false,
           restrict: false,
           antiCall: false,
-          antiPrivate: false,
+          antiPrivate: true,
 	  modejadibot: true,
           antispam: false,
 	  audios_bot: true,
