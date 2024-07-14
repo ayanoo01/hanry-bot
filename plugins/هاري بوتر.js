@@ -10,10 +10,10 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     let src = await (await fetch('https://gist.githubusercontent.com/ayanoo01/b37ff10b3aee1a723c50dd429b76d9fe/raw/b2cb1e037c6df08058fa598ead9e89cba40a1cb1/kakashi')).json()
   let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*${command.toUpperCase()}*
-  ❐↞┇الـوقـت⏳↞ *${(timeout / 1000).toFixed(2)} ┇
+  *❐↞┇الـوقـت⏳↞ *${(timeout / 1000).toFixed(2)} ┇
   *استخدم .انسحب للأنسحاب*
-  ❐↞┇الـجـائـزة💰↞ ${poin} نقاط┇
-『𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘-𝚋𝚘𝚝』
+  *❐↞┇الـجـائـزة💰↞ ${poin} نقاط┇*
+*『𝚃𝚛𝚊𝚏𝚊𝚕𝚐𝚊𝚛 𝙻𝚊𝚘-𝚋𝚘𝚝』*
      `.trim()
     conn.tebakbendera[id] = [
         await conn.sendFile(m.chat, json.img, '', caption, m),
