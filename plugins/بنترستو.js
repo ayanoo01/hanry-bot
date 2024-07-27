@@ -1,88 +1,34 @@
-import axios from 'axios';
-const {
-  generateWAMessageContent,
-  generateWAMessageFromContent,
-  proto
-} = (await import("@whiskeysockets/baileys")).default;
 
-let handler = async (message, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    return conn.reply(message.chat, "[❗] *¿Que quieres buscar en pinterest?*", message);
-  }
-  
-  async function generateImageMessage(url) {
-    const { imageMessage } = await generateWAMessageContent({ 'image': { 'url': url } }, { 'upload': conn.waUploadToServer });
-    return imageMessage;
-  }
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+import fetch from 'node-fetch';
+
+let handler = async (m, { conn, text }) => {
+
+    if (!text) throw "يرجى كتابة نص للسؤال، على سبيل المثال: 'ما هو آخر الأنبياء؟'";
+
+    try {
+        await conn.sendMessage(m.chat, { text: "انتظر لحظة بينما أفكر في إجابتك... 🧠💭" }, { quoted: m });
+
+        const kurosakiApi = https://api-kurosaki-dev0.osc-fr1.scalingo.io/api/ai/gpt4?q=${encodeURIComponent(text)};
+        var response = await fetch(kurosakiApi);
+        var res = await response.json();
+
+        if (res.status) {
+            if (res.kurosaki) {
+                await conn.sendFile(m.chat, 'https://telegra.ph/file/8a22ae4dc100622bae361.jpg', 'image.png', res.kurosaki, m, { caption: res.kurosaki });
+            } else {
+                await conn.sendMessage(m.chat, "لم يتم العثور على نتيجة مناسبة لإجابتك. حاول مرة أخرى.", { quoted: m });
+            }
+        } else {
+            await conn.sendMessage(m.chat, "حدث خطأ أثناء محاولة الحصول على الإجابة. الرجاء المحاولة لاحقاً.", { quoted: m });
+        }
+    } catch (error) {
+        console.error(error);
+        await conn.sendMessage(m.chat, "فشل، الرجاء المحاولة في وقت لاحق.", { quoted: m });
     }
-  }
-
-  let results = [];
-  let { data } = await axios.get("https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D" + text + "&data=%7B%22options%22%3A%7B%22isPrefetch%22%3Afalse%2C%22query%22%3A%22" + text + "%22%2C%22scope%22%3A%22pins%22%2C%22no_fetch_context_on_resource%22%3Afalse%7D%2C%22context%22%3A%7B%7D%7D&_=1619980301559");
-  let imageUrls = data.resource_response.data.results.map(result => result.images.orig.url);
-  shuffleArray(imageUrls);
-  let selectedImages = imageUrls.splice(0, 5);
-  let imageCount = 1;
-
-  for (let imageUrl of selectedImages) {
-    results.push({
-      'body': proto.Message.InteractiveMessage.Body.fromObject({
-        'text': "Imagen -" + (" " + imageCount++)
-      }),
-      'footer': proto.Message.InteractiveMessage.Footer.fromObject({
-        'text': "ほ𝑺𝑯𝑨𝑵𝑲𝑺〆" // ضع العلامة المائية هنا
-      }),
-      'header': proto.Message.InteractiveMessage.Header.fromObject({
-        'title': '',
-        'hasMediaAttachment': true,
-        'imageMessage': await generateImageMessage(imageUrl)
-      }),
-      'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-        'buttons': [{
-          'name': "cta_url",
-          'buttonParamsJson': "{\"display_text\":\"url 📫\",\"Url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + text + "\",\"merchant_url\":\"https://www.pinterest.com/search/pins/?rs=typed&q=" + text + "\"}"
-        }]
-      })
-    });
-  }
-
-  const messageContent = generateWAMessageFromContent(message.chat, {
-    'viewOnceMessage': {
-      'message': {
-        'messageContextInfo': {
-          'deviceListMetadata': {},
-          'deviceListMetadataVersion': 2
-        },
-        'interactiveMessage': proto.Message.InteractiveMessage.fromObject({
-          'body': proto.Message.InteractiveMessage.Body.create({
-            'text': "[❗] نتيجة البحث : " + text
-          }),
-          'footer': proto.Message.InteractiveMessage.Footer.create({
-            'text': " kakashi "
-          }),
-          'header': proto.Message.InteractiveMessage.Header.create({
-            'hasMediaAttachment': false
-          }),
-          'carouselMessage': proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-            'cards': [...results]
-          })
-        })
-      }
-    }
-  }, {
-    'quoted': message
-  });
-
-  await conn.relayMessage(message.chat, messageContent.message, { 'messageId': messageContent.key.id });
 };
 
-handler.help = ["pinterest"];
-handler.tags = ["downloader"];
-handler.command = /^(بينتر)$/i;
-
+handler.command = ['gpt4', 'جبت4'];
+handler.tags = ['ai'];
+handler.help = ['gpt4 <النص> - للحصول على إجابة باستخدام GPT-4'];
 export default handler;
